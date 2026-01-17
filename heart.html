@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>For My Love ❤️</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      min-height: 100vh;
+      margin: 0;
+      background: linear-gradient(120deg, #ff9a9e, #fad0c4);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      overflow: hidden;
+    }
+
+    /* Floating hearts */
+    .heart {
+      position: absolute;
+      bottom: -20px;
+      font-size: 14px;
+      animation: floatUp linear forwards;
+      opacity: 0.8;
+      pointer-events: none;
+    }
+
+    @keyframes floatUp {
+      from {
+        transform: translateY(0) scale(1);
+        opacity: 1;
+      }
+      to {
+        transform: translateY(-110vh) scale(1.6);
+        opacity: 0;
+      }
+    }
+
+    .container {
+      background: rgba(255,255,255,0.2);
+      padding: 30px;
+      border-radius: 22px;
+      text-align: center;
+      max-width: 420px;
+      width: 90%;
+      backdrop-filter: blur(12px);
+      z-index: 2;
+      max-height: 90vh;
+      overflow-y: auto;
+    }
+
+    h1 {
+      font-family: 'Pacifico', cursive;
+      font-size: 2.6rem;
+      margin-bottom: 10px;
+    }
+
+    .pre-msg {
+      font-size: 0.95rem;
+      opacity: 0.9;
+      margin-bottom: 20px;
+      font-style: italic;
+    }
+
+    button {
+      background: #ff4b5c;
+      border: none;
+      padding: 14px 30px;
+      color: white;
+      border-radius: 30px;
+      cursor: pointer;
+      margin: 10px 0 20px;
+      font-size: 1rem;
+    }
+
+    .message {
+      margin: 20px 0;
+      font-size: 1.05rem;
+      line-height: 1.6;
+      text-align: center;
+    }
+
+    /* Gallery */
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      margin-top: 20px;
+    }
+
+    .gallery img {
+      width: 100%;
+      height: 120px;
+      object-fit: cover;
+      border-radius: 14px;
+      cursor: pointer;
+    }
+
+    /* Lightbox */
+    .lightbox {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.85);
+      justify-content: center;
+      align-items: center;
+      z-index: 10;
+    }
+
+    .lightbox img {
+      max-width: 90%;
+      max-height: 70vh;
+      border-radius: 20px;
+    }
+
+    .lightbox p {
+      color: white;
+      text-align: center;
+      margin-top: 15px;
+      font-size: 1.1rem;
+    }
+
+    iframe {
+      margin-top: 20px;
+      border-radius: 12px;
+    }
+  </style>
+</head>
+
+<body>
+
+<div class="container">
+  <h1>Krishu ❤️</h1>
+
+  <!-- Cute message before surprise -->
+  <div class="pre-msg">
+    I made something small for you… please open it with a smile 💗
+  </div>
+
+  <!-- Surprise Button -->
+  <button onclick="showLove()">Click for a Surprise 💖</button>
+
+  <!-- Hidden Content -->
+  <div id="hiddenContent" style="display:none;">
+
+    <div class="message">
+      Distance may keep us apart physically, but it has never been strong enough to touch what we share.
+      Every day, I carry you with me—in my thoughts, in my smiles, in the quiet moments when I wish
+      I could just hear your voice or see your eyes light up.
+      <br><br>
+      Some nights, I miss you a little more than usual. I miss the way you make everything feel calm,
+      the way your presence turns ordinary moments into something special. But even from miles away,
+      you give me strength, comfort, and a reason to believe in us.
+      <br><br>
+      This distance is only temporary, but my love for you isn’t.
+      I promise you, <strong>Krishu</strong>, no matter how far we are,
+      my heart will always find its way back to you.
+      One day, this waiting will turn into memories we’ll laugh about—
+      until then, know that you’re deeply loved, always missed,
+      and forever mine. 💞
+    </div>
+
+    <!-- Apple Music -->
+    <iframe
+      allow="autoplay *; encrypted-media *;"
+      frameborder="0"
+      height="150"
+      style="width:100%;max-width:100%;"
+      sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-top-navigation-by-user-activation"
+      src="https://embed.music.apple.com/in/album/until-i-found-you/1581702082?i=1581702085">
+    </iframe>
+
+    <!-- Gallery -->
+    <div class="gallery">
+      <img src="pic1.jpeg" onclick="openImg(this)" data-text="My favorite smile 💕">
+      <img src="pic2.jpeg" onclick="openImg(this)" data-text="Every moment with you ✨">
+      <img src="pic3.jpeg" onclick="openImg(this)" data-text="You are my peace 🤍">
+      <img src="pic4.jpeg" onclick="openImg(this)" data-text="My Love 💞">
+      <img src="pic5.jpeg" onclick="openImg(this)" data-text="My happy place 🌸">
+      <img src="pic6.jpeg" onclick="openImg(this)" data-text="Love you endlessly ❤️">
+    </div>
+
+  </div>
+</div>
+
+<!-- Lightbox -->
+<div class="lightbox" id="lightbox" onclick="closeImg()">
+  <div>
+    <img id="lightboxImg">
+    <p id="lightboxText"></p>
+  </div>
+</div>
+
+<script>
+  function showLove() {
+    document.getElementById("hiddenContent").style.display = "block";
+  }
+
+  function openImg(img) {
+    document.getElementById("lightboxImg").src = img.src;
+    document.getElementById("lightboxText").innerText = img.dataset.text;
+    document.getElementById("lightbox").style.display = "flex";
+  }
+
+  function closeImg() {
+    document.getElementById("lightbox").style.display = "none";
+  }
+
+  /* Floating hearts */
+  function createHeart() {
+    const heart = document.createElement("div");
+    heart.className = "heart";
+    heart.innerText = "❤️";
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.animationDuration = 4 + Math.random() * 3 + "s";
+    heart.style.fontSize = 10 + Math.random() * 10 + "px";
+    document.body.appendChild(heart);
+    setTimeout(() => heart.remove(), 7000);
+  }
+
+  setInterval(createHeart, 600);
+</script>
+
+</body>
+</html>
